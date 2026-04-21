@@ -1,7 +1,7 @@
 package com.caresync.api_gateway;
 
-import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.junit.jupiter.api.Test;
 
 @SpringBootTest
 class ApiGatewayApplicationTests {

@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+  auth-service-db:
+    image: postgres:latest
+    container_name: auth-service-db
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: auth_service
+
+    ports:
+      - "5001:5432"
+
+    volumes:
+      - ./auth-service-db:/var/lib/postgresql
+
+    networks:
+      - internal
+
+networks:
+  internal:
+    external: true

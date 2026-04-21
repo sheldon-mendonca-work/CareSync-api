@@ -1,0 +1,21 @@
+services:
+  api-gateway:
+    image: api-gateway:latest
+    container_name: api-gateway
+    restart: unless-stopped
+
+    environment:
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka-docker:9092
+
+    ports:
+      - "4004:4004"
+
+    # depends_on:
+    #   - api-gateway-db
+
+    networks:
+      - internal
+
+networks:
+  internal:
+    external: true
