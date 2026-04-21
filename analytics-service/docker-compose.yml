@@ -1,0 +1,21 @@
+services:
+  analytics-service:
+    image: analytics-service:latest
+    container_name: analytics-service
+    restart: unless-stopped
+
+    environment:
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka-docker:9092
+
+    ports:
+      - "4002:4002"
+
+    # depends_on:
+    #   - analytics-service-db
+
+    networks:
+      - internal
+
+networks:
+  internal:
+    external: true
