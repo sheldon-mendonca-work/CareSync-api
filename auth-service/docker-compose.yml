@@ -1,0 +1,25 @@
+services:
+  auth-service:
+    image: auth-service:latest
+    container_name: auth-service
+    restart: unless-stopped
+
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://auth-service-db:5432/auth_service
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+      BILLING_SERVICE_ADDRESS: billing-service
+      JWT_SECRET: ChangeMeCareSyncAuthSecretKey2026DevOnly!
+
+    ports:
+      - "4005:4005"
+
+    # depends_on:
+    #   - auth-service-db
+
+    networks:
+      - internal
+
+networks:
+  internal:
+    external: true

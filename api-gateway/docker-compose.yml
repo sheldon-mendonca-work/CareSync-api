@@ -6,6 +6,7 @@ services:
 
     environment:
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka-docker:9092
+      AUTH_SERVICE_URL: http://auth-service:4005
 
     ports:
       - "4004:4004"
